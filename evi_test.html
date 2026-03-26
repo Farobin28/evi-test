@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЄВІ Тренажер: IT та Ігрова Індустрія</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 { text-align: center; color: #2c3e50; }
+        .task-container {
+            background: #fff;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .text-block {
+            background: #e8f4f8;
+            padding: 15px;
+            border-left: 5px solid #3498db;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        .question { margin-bottom: 20px; font-weight: bold; }
+        .options { margin-bottom: 10px; font-weight: normal; margin-top: 10px;}
+        .options label { display: block; margin-bottom: 5px; cursor: pointer; padding: 5px; border-radius: 5px; transition: background 0.2s;}
+        .options label:hover { background: #f1f1f1; }
+        
+        select {
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 15px;
+            cursor: pointer;
+            background: #fff;
+            max-width: 100%;
+        }
+        
+        .gap-container {
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        button.check-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-bottom: 40px;
+        }
+        button.check-btn:hover { background-color: #219150; }
+        
+        #result-box {
+            display: none;
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-top: 5px solid #27ae60;
+            font-size: 20px;
+        }
+
+        .inline-feedback {
+            display: inline-block;
+            margin-left: 10px;
+            font-size: 15px;
+            padding: 4px 8px;
+            border-radius: 5px;
+            animation: fadeIn 0.5s;
+        }
+        .correct-text { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .incorrect-text { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        
+        .select-correct { background-color: #d4edda !important; border-color: #28a745 !important; font-weight: bold;}
+        .select-incorrect { background-color: #f8d7da !important; border-color: #dc3545 !important; text-decoration: line-through;}
+        .radio-correct { background-color: #d4edda !important; border: 1px solid #28a745; font-weight: bold; }
+        .radio-incorrect { background-color: #f8d7da !important; border: 1px solid #dc3545; text-decoration: line-through; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Тренувальний тест ЄВІ (30 питань)</h1>
+
+    <form id="quiz-form">
+
+        <div class="task-container">
+            <h2>Task 1: Reading (Matching Choices)</h2>
+            <div class="text-block">
+                <strong>The Story of a Gaming Legend</strong><br><br>
+                <strong>1.</strong> Gabe Newell is a famous figure in the computer and video game industry. After finishing school, he went to study at Harvard University, one of the most prestigious universities in the world. However, he decided to drop out because he was deeply interested in working with computers. He soon got a job at Microsoft, where he spent 13 years helping to create the early Windows operating systems.<br><br>
+                <strong>2.</strong> Despite his success and high salary at Microsoft, Gabe had a different passion: video games. In 1996, he took a massive risk, left his safe job, and founded his own company called Valve. His small team worked tirelessly, and their efforts paid off when they released "Half-Life", a game that changed the industry forever and was played by millions.<br><br>
+                <strong>3.</strong> Valve didn't stop at making just one successful game. However, Gabe noticed a significant problem in the market. Back then, developers had to sell physical CDs in cardboard boxes through traditional retail stores, making it very hard for small creators to reach their audience and release updates for their games.<br><br>
+                <strong>4.</strong> To solve this issue, Valve created "Steam", a digital distribution platform. This special program allowed players to easily buy, download, and update games directly on their computers. It completely revolutionized the market. Now, anyone who makes a high-quality game can publish it online and reach millions of players globally.<br><br>
+                <strong>5.</strong> Today, Steam is more than just a store. It is a massive global network with millions of users online every day. The technology behind it is incredibly complex. Servers and network systems must operate flawlessly 24 hours a day to prevent connection drops, especially for popular multiplayer survival games. Maintaining this stable infrastructure is a huge technical achievement.
+            </div>
+            <p><strong>A</strong> - The limitations of the old retail system | <strong>B</strong> - The dangers of playing video games | <strong>C</strong> - Revolutionizing digital distribution | <strong>D</strong> - The unseen technical infrastructure | <strong>E</strong> - Creating new gaming consoles | <strong>F</strong> - A safe but unfulfilling academic start | <strong>G</strong> - The birth of a legendary studio | <strong>H</strong> - An unsuccessful early project</p>
+            
+            <div class="question">1. <select name="q1"><option value="">Обери...</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select></div>
+            <div class="question">2. <select name="q2"><option value="">Обери...</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select></div>
+            <div class="question">3. <select name="q3"><option value="">Обери...</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select></div>
+            <div class="question">4. <select name="q4"><option value="">Обери...</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select></div>
+            <div class="question">5. <select name="q5"><option value="">Обери...</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select></div>
+        </div>
+
+        <div class="task-container">
+            <h2>Task 2: Reading (Multiple Choice)</h2>
+            <div class="text-block">
+                <strong>The Appeal of Survival Games and Networks</strong><br><br>
+                Over the last decade, a specific genre has taken the gaming world by storm: the multiplayer survival game. Unlike traditional games where players are given clear missions and powerful weapons from the start, survival games drop players into a harsh environment with absolutely nothing. The primary goal is simple yet incredibly challenging: stay alive, find resources, and build a shelter. <br><br>
+                However, the virtual environment is not the only thing players have to worry about. The true tension comes from interacting with other human players sharing the same server. This requires a perfectly stable internet connection. Steam makes it easy to connect to these servers, but behind the scenes, the technology is massive.<br><br>
+                Millions of players log in daily. If a server crashes or the network goes down, the entire player experience is ruined. This is why companies hire dedicated network engineers, systems administrators, and IT specialists. Their job is to monitor the infrastructure, configure network protocols, and troubleshoot any software or hardware issues immediately. <br><br>
+                For young professionals interested in technology, this sector offers exciting career opportunities. It takes a lot of patience to write code, design levels with programs like Unity, or maintain server racks. But the result—a stable, engaging global system—is a massive technical achievement that keeps the modern entertainment industry running.
+            </div>
+            
+            <div class="question">6. How do survival games differ from traditional games?
+                <div class="options" data-q="q6">
+                    <label><input type="radio" name="q6" value="A"> A) They provide powerful weapons immediately.</label>
+                    <label><input type="radio" name="q6" value="B"> B) Players start with nothing and must find resources.</label>
+                    <label><input type="radio" name="q6" value="C"> C) They do not feature any multiplayer modes.</label>
+                    <label><input type="radio" name="q6" value="D"> D) Players are not allowed to build shelters.</label>
+                </div>
+            </div>
+            <div class="question">7. Where does the true tension in survival games come from?
+                <div class="options" data-q="q7">
+                    <label><input type="radio" name="q7" value="A"> A) Computer-controlled animals.</label>
+                    <label><input type="radio" name="q7" value="B"> B) The lack of clear graphics.</label>
+                    <label><input type="radio" name="q7" value="C"> C) Interacting with other human players on the server.</label>
+                    <label><input type="radio" name="q7" value="D"> D) The high cost of the game.</label>
+                </div>
+            </div>
+            <div class="question">8. What happens if a game server crashes?
+                <div class="options" data-q="q8">
+                    <label><input type="radio" name="q8" value="A"> A) The players receive extra points.</label>
+                    <label><input type="radio" name="q8" value="B"> B) The game automatically updates.</label>
+                    <label><input type="radio" name="q8" value="C"> C) The entire player experience is ruined.</label>
+                    <label><input type="radio" name="q8" value="D"> D) The developers shut down the company.</label>
+                </div>
+            </div>
+            <div class="question">9. What is the role of a systems administrator in this context?
+                <div class="options" data-q="q9">
+                    <label><input type="radio" name="q9" value="A"> A) To play games and find bugs.</label>
+                    <label><input type="radio" name="q9" value="B"> B) To monitor infrastructure and troubleshoot issues.</label>
+                    <label><input type="radio" name="q9" value="C"> C) To write the story and missions for the game.</label>
+                    <label><input type="radio" name="q9" value="D"> D) To sell physical CDs in retail stores.</label>
+                </div>
+            </div>
+            <div class="question">10. What does the text say about careers in this technological sector?
+                <div class="options" data-q="q10">
+                    <label><input type="radio" name="q10" value="A"> A) They are boring and do not pay well.</label>
+                    <label><input type="radio" name="q10" value="B"> B) They do not require any patience or skills.</label>
+                    <label><input type="radio" name="q10" value="C"> C) They are exclusively for people who went to Harvard.</label>
+                    <label><input type="radio" name="q10" value="D"> D) They offer exciting opportunities and involve massive technical achievements.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="task-container">
+            <h2>Task 3: Use of English (Vocabulary)</h2>
+            <div class="text-block" style="line-height: 2.4;">
+                Creating a video game or a complex website is a difficult process. Many developers use powerful engines to <strong>(11)</strong> 
+                <span class="gap-container"><select name="q11"><option value="">Обери...</option><option value="A">A) bring</option><option value="B">B) take</option><option value="C">C) make</option><option value="D">D) get</option></select></span> their ideas to life. It requires a lot of <strong>(12)</strong> 
+                <span class="gap-container"><select name="q12"><option value="">Обери...</option><option value="A">A) patient</option><option value="B">B) patience</option><option value="C">C) patiently</option><option value="D">D) patients</option></select></span> to write code, design levels, and fix <strong>(13)</strong> 
+                <span class="gap-container"><select name="q13"><option value="">Обери...</option><option value="A">A) insects</option><option value="B">B) bugs</option><option value="C">C) faults</option><option value="D">D) mistakes</option></select></span> in the software before the official release. <br><br>
+
+                Sometimes, tech companies face unexpected challenges. For example, when a new multiplayer game is launched, millions of people might try to <strong>(14)</strong> 
+                <span class="gap-container"><select name="q14"><option value="">Обери...</option><option value="A">A) access</option><option value="B">B) enter</option><option value="C">C) connect</option><option value="D">D) log</option></select></span> the servers at the exact same time. If the servers cannot handle this massive load, the system might <strong>(15)</strong> 
+                <span class="gap-container"><select name="q15"><option value="">Обери...</option><option value="A">A) fall</option><option value="B">B) crash</option><option value="C">C) drop</option><option value="D">D) break</option></select></span>.<br><br>
+
+                This is exactly why IT companies hire network specialists and systems <strong>(16)</strong> 
+                <span class="gap-container"><select name="q16"><option value="">Обери...</option><option value="A">A) managers</option><option value="B">B) workers</option><option value="C">C) administrators</option><option value="D">D) creators</option></select></span> to monitor the infrastructure. They work hard to <strong>(17)</strong> 
+                <span class="gap-container"><select name="q17"><option value="">Обери...</option><option value="A">A) ensure</option><option value="B">B) secure</option><option value="C">C) assure</option><option value="D">D) protect</option></select></span> a smooth and stable experience for all users. Good professionals are always in high <strong>(18)</strong> 
+                <span class="gap-container"><select name="q18"><option value="">Обери...</option><option value="A">A) need</option><option value="B">B) request</option><option value="C">C) demand</option><option value="D">D) wish</option></select></span> in the tech industry. To succeed in this field, you must continuously <strong>(19)</strong> 
+                <span class="gap-container"><select name="q19"><option value="">Обери...</option><option value="A">A) improve</option><option value="B">B) rise</option><option value="C">C) grow</option><option value="D">D) lift</option></select></span> your skills, practice coding, and stay updated with the latest <strong>(20)</strong> 
+                <span class="gap-container"><select name="q20"><option value="">Обери...</option><option value="A">A) technique</option><option value="B">B) technologies</option><option value="C">C) technical</option><option value="D">D) technicians</option></select></span>.
+            </div>
+        </div>
+
+        <div class="task-container">
+            <h2>Task 4: Use of English (Grammar)</h2>
+            <div class="text-block" style="line-height: 2.4;">
+                Many young people dream of a career in the IT industry. Some of them <strong>(21)</strong> 
+                <span class="gap-container"><select name="q21"><option value="">Обери...</option><option value="A">A) are</option><option value="B">B) is</option><option value="C">C) was</option><option value="D">D) have</option></select></span> studying game development, while others are interested in network engineering. If you want to get a good job, you <strong>(22)</strong> 
+                <span class="gap-container"><select name="q22"><option value="">Обери...</option><option value="A">A) ought</option><option value="B">B) must</option><option value="C">C) need</option><option value="D">D) has</option></select></span> prepare well for the interview.<br><br>
+
+                First of all, it is essential <strong>(23)</strong> 
+                <span class="gap-container"><select name="q23"><option value="">Обери...</option><option value="A">A) build</option><option value="B">B) to build</option><option value="C">C) building</option><option value="D">D) built</option></select></span> a strong resume. If you <strong>(24)</strong> 
+                <span class="gap-container"><select name="q24"><option value="">Обери...</option><option value="A">A) create</option><option value="B">B) are created</option><option value="C">C) have created</option><option value="D">D) creates</option></select></span> a website or a small game in the past, you should definitely include it in your portfolio. Employers are always looking for candidates who <strong>(25)</strong> 
+                <span class="gap-container"><select name="q25"><option value="">Обери...</option><option value="A">A) have</option><option value="B">B) has</option><option value="C">C) had</option><option value="D">D) having</option></select></span> practical experience.<br><br>
+
+                Last week, a young man <strong>(26)</strong> 
+                <span class="gap-container"><select name="q26"><option value="">Обери...</option><option value="A">A) go</option><option value="B">B) goes</option><option value="C">C) has gone</option><option value="D">D) went</option></select></span> to an interview for a Network Engineer position. During the meeting, he <strong>(27)</strong> 
+                <span class="gap-container"><select name="q27"><option value="">Обери...</option><option value="A">A) is</option><option value="B">B) was</option><option value="C">C) has been</option><option value="D">D) had</option></select></span> asked several difficult questions about servers and routing protocols. Fortunately, he <strong>(28)</strong> 
+                <span class="gap-container"><select name="q28"><option value="">Обери...</option><option value="A">A) was preparing</option><option value="B">B) has prepared</option><option value="C">C) had been preparing</option><option value="D">D) prepares</option></select></span> for the interview for weeks, so he answered everything perfectly. Currently, he <strong>(29)</strong> 
+                <span class="gap-container"><select name="q29"><option value="">Обери...</option><option value="A">A) wait</option><option value="B">B) waits</option><option value="C">C) is waiting</option><option value="D">D) has waited</option></select></span> for the company's final decision. He hopes that he <strong>(30)</strong> 
+                <span class="gap-container"><select name="q30"><option value="">Обери...</option><option value="A">A) is offered</option><option value="B">B) will be offered</option><option value="C">C) offers</option><option value="D">D) offered</option></select></span> the job soon.
+            </div>
+        </div>
+
+        <button type="button" class="check-btn" onclick="calculateScore()">Перевірити результати</button>
+        
+        <div id="result-box">
+            <div class="score-title" id="score-text"></div>
+        </div>
+    </form>
+
+    <script>
+        const correctAnswers = {
+            q1: "F", q2: "G", q3: "A", q4: "C", q5: "D",
+            q6: "B", q7: "C", q8: "C", q9: "B", q10: "D",
+            q11: "A", q12: "B", q13: "B", q14: "A", q15: "B", q16: "C", q17: "A", q18: "C", q19: "A", q20: "B",
+            q21: "A", q22: "B", q23: "B", q24: "C", q25: "A", q26: "D", q27: "B", q28: "C", q29: "C", q30: "B"
+        };
+
+        function calculateScore() {
+            // Очищення попередніх результатів
+            document.querySelectorAll('.inline-feedback').forEach(el => el.remove());
+            
+            let score = 0;
+            let totalAnswered = 0;
+            const totalQuestions = Object.keys(correctAnswers).length;
+            const form = document.getElementById("quiz-form");
+            const formData = new FormData(form);
+
+            for (const [question, correctAnswer] of Object.entries(correctAnswers)) {
+                const userAnswer = formData.get(question);
+                const inputs = form.querySelectorAll(`[name="${question}"]`);
+                
+                if (userAnswer) totalAnswered++;
+
+                const isCorrect = (userAnswer === correctAnswer);
+
+                // Опрацювання випадаючих списків (Select)
+                if (inputs[0].tagName === 'SELECT') {
+                    const selectEl = inputs[0];
+                    selectEl.disabled = true; // Блокуємо зміну
+
+                    const correctOptionText = Array.from(selectEl.options).find(opt => opt.value === correctAnswer).text;
+                    const feedbackSpan = document.createElement("span");
+                    feedbackSpan.className = "inline-feedback " + (isCorrect ? "correct-text" : "incorrect-text");
+                    
+                    if (isCorrect) {
+                        selectEl.classList.add('select-correct');
+                        feedbackSpan.innerHTML = `✅`; 
+                    } else {
+                        if (userAnswer !== "") selectEl.classList.add('select-incorrect');
+                        feedbackSpan.innerHTML = `❌ Правильно: <b>${correctOptionText}</b>`;
+                    }
+                    
+                    selectEl.parentNode.insertBefore(feedbackSpan, selectEl.nextSibling);
+
+                // Опрацювання радіо-кнопок (Input Radio)
+                } else if (inputs[0].tagName === 'INPUT' && inputs[0].type === 'radio') {
+                    const optionsContainer = inputs[0].closest('.options');
+                    let correctLabelText = "";
+
+                    inputs.forEach(input => {
+                        input.disabled = true; // Блокуємо зміну
+                        const label = input.closest('label');
+                        
+                        if (input.value === correctAnswer) {
+                            label.classList.add('radio-correct');
+                            correctLabelText = label.innerText.trim();
+                        } else if (input.checked && input.value !== correctAnswer) {
+                            label.classList.add('radio-incorrect');
+                        }
+                    });
+
+                    const feedbackDiv = document.createElement("div");
+                    feedbackDiv.className = "inline-feedback " + (isCorrect ? "correct-text" : "incorrect-text");
+                    feedbackDiv.style.marginTop = "10px";
+                    feedbackDiv.style.display = "block"; 
+                    
+                    if (isCorrect) {
+                        feedbackDiv.innerHTML = `✅ Правильно!`;
+                    } else {
+                        feedbackDiv.innerHTML = `❌ Правильна відповідь: <b>${correctLabelText}</b>`;
+                    }
+                    optionsContainer.appendChild(feedbackDiv);
+                }
+
+                if (isCorrect) score++;
+            }
+
+            // Вивід загального результату
+            const resultBox = document.getElementById("result-box");
+            const scoreText = document.getElementById("score-text");
+            resultBox.style.display = "block";
+            
+            if (totalAnswered < totalQuestions) {
+                scoreText.innerHTML = `Дано відповідей: ${totalAnswered} з ${totalQuestions}.<br> Твій бал: <b style="color:#e67e22">${score}/${totalQuestions}</b>. <br><span style="font-size:16px; font-weight:normal;">(Правильні відповіді підсвічено в тексті)</span>`;
+            } else {
+                scoreText.innerHTML = `Твій фінальний результат: <b style="color:#27ae60">${score} з ${totalQuestions}</b> правильних відповідей! 🎉`;
+            }
+            
+            resultBox.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
